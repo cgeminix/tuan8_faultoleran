@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 
 const circuit = require('./circuitBreaker');
 const retry = require('./retry');
-// const rateLimiter = require('./rateLimiter');
+const rateLimiter = require('./rateLimiter');
 // const timeLimiter = require('./timeLimiter');
 
 const app = express();
@@ -12,7 +12,7 @@ app.use(bodyParser.json());
 
 app.use('/circuit', circuit);
 app.use('/retry', retry);
-// app.use('/rate', rateLimiter);
+app.use('/rate', rateLimiter);
 // app.use('/time', timeLimiter);
 
 app.listen(3000, () => {
